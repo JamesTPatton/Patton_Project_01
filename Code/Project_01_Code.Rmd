@@ -1,0 +1,32 @@
+---
+title: "Project_01_Code"
+author: "Tacker Patton"
+date: "2022-10-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## graph of IQ levels by location status
+
+```{r}
+
+```
+
+## nicely formatted table
+
+```{r}
+
+```
+
+## description the graph and the table
+
+[enter text]
+
+## calculations of the means
+
+```{r}
+
+```
