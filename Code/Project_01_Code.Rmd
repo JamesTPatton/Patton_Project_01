@@ -2,16 +2,34 @@
 title: "Project_01_Code"
 author: "Tacker Patton"
 date: "2022-10-10"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## load packages 
+
+```{r}
+library(tidyverse)
+```
+
+## import dataset
+
+```{r}
+data <- read.csv("/Users/pattojam/Patton_Project_01/DataRaw/lead-iq-01.csv")
+View(data)
+
+```
+
 ## graph of IQ levels by location status
 
 ```{r}
+ggplot(data, aes(x = Smelter, y = IQ)) + 
+  geom_bar(stat = "identity")
 
 ```
 
