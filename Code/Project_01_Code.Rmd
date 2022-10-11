@@ -45,7 +45,8 @@ print(p) # display the result
 ```{r}
 # create table to summarize data_clean
 table <- data %>% 
-  tbl_summary()
+  tbl_summary() %>%
+  as_kable()
 
 print(table) # display the result
 
