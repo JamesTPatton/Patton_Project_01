@@ -28,6 +28,18 @@ View(data) # display the result
 
 ```
 
+#### modify dataset 
+
+```{r}
+data[10, 2] <- 99 # change value from '999' to '99'
+View(data) # display the result
+
+# export modified dataset
+write.csv(data, file.path("/Users/pattojam/Patton_Project_01/DataProcessed", 
+                          "data_clean.csv"), row.names=FALSE)
+
+```
+
 #### graph IQ levels by location status
 
 ```{r}
