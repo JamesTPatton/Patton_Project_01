@@ -2,8 +2,8 @@
 title: "Project_01_Code"
 author: "Tacker Patton"
 date: "2022-10-10"
-output:
-  html_document: default
+output: html_notebook
+
 ---
 
 ```{r setup, include=FALSE}
@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-## load packages 
+#### load packages 
 
 ```{r}
 library(tidyverse) # data science
@@ -19,7 +19,7 @@ library(gtsummary) # descriptive statistics
 
 ```
 
-## import dataset
+#### import dataset
 
 ```{r}
 # note: change file path to match user environment 
@@ -28,7 +28,7 @@ View(data) # display the result
 
 ```
 
-## graph IQ levels by location status
+#### graph IQ levels by location status
 
 ```{r}
 # create a box plot of IQ by location status
@@ -40,7 +40,7 @@ print(p) # display the result
 
 ```
 
-## nicely formatted table
+#### nicely formatted table
 
 ```{r}
 # create table to summarize data_clean
@@ -52,13 +52,13 @@ print(table) # display the result
 
 ```
 
-## description the graph and the table
+#### description the graph and the table
 
 The box plots above display the median IQ score for children between the ages of 3 and 15 who lived in El Paso, Texas. These children were sub-divided based on their proximity to the smelter. The box plots also display the minimum and maximum values for IQ score among the observed children. Also, it is apparent that there is an outlier value for IQ score for one individual. 
 
 The Table 1 shown above provides summary statistics of the children. Specifically, out of the 124 children who were observed, 67 (54%) lived far away from the smelter and 57 (46%) lived near the smelter. The average IQ score across the observed children was 91 approximately.
 
-## calculations of the means
+#### calculations of the means
 
 ```{r}
 data_far <- data[which(data$Smelter == 'Far'), ] # subset 'far' data
