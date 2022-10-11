@@ -3,49 +3,78 @@ title: "Project_01_Code"
 author: "Tacker Patton"
 date: "2022-10-10"
 output:
-  pdf_document: default
   html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 ## load packages 
 
 ```{r}
-library(tidyverse)
+library(tidyverse) # data science
+library(gtsummary) # descriptive statistics
+
 ```
 
 ## import dataset
 
 ```{r}
+# note: change file path to match user environment 
 data <- read.csv("/Users/pattojam/Patton_Project_01/DataRaw/lead-iq-01.csv")
-View(data)
+View(data) # display the result
 
 ```
 
-## graph of IQ levels by location status
+## graph IQ levels by location status
 
 ```{r}
-ggplot(data, aes(x = Smelter, y = IQ)) + 
-  geom_bar(stat = "identity", fill = "steelblue") + 
-  theme_minimal()
+# create a box plot of IQ by location status
+p <- ggplot(data, aes(x = Smelter, y = IQ)) + 
+  geom_boxplot() + 
+  ggtitle("IQ levels by location status")
+
+print(p) # display the result
 
 ```
 
 ## nicely formatted table
 
 ```{r}
+# create table to summarize data_clean
+table <- data %>% 
+  tbl_summary()
+
+print(table) # display the result
 
 ```
 
 ## description the graph and the table
 
-[enter text]
+The box plots above display the median IQ score for children between the ages of 3 and 15 who lived in El Paso, Texas. These children were sub-divided based on their proximity to the smelter. The box plots also display the minimum and maximum values for IQ score among the observed children. Also, it is apparent that there is an outlier value for IQ score for one individual. 
+
+The Table 1 shown above provides summary statistics of the children. Specifically, out of the 124 children who were observed, 67 (54%) lived far away from the smelter and 57 (46%) lived near the smelter. The average IQ score across the observed children was 91 approximately.
 
 ## calculations of the means
 
 ```{r}
+data_far <- data[which(data$Smelter == 'Far'), ] # subset 'far' data
+View(data_far) # display the result
+
+# calculate mean value for 'far' children
+mean_far <- round(mean(data_far$IQ, na.rm = TRUE), 2) # display the result 
+print(mean_far) # display the result
+
+data_near <- data[which(data$Smelter == 'Near'), ] # subset 'near' data
+View(data_near) # display the result
+
+# calculate mean value for 'near' children
+mean_near <- round(mean(data_near$IQ, na.rm = TRUE), 2) # display the result 
+print(mean_near) # display the result
 
 ```
+
+* The mean IQ for children 'far' from the smelter is `r mean_far`
+* The mean IQ for children 'near' to the smelter is `r mean_near`
